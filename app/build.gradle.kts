@@ -48,7 +48,7 @@ android {
         buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.0"
+        kotlinCompilerExtensionVersion = "1.5.10"
     }
     packaging {
         resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
@@ -92,9 +92,13 @@ dependencies {
     //Test
     testImplementation("junit:junit:4.+")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.43.2")
     androidTestImplementation("com.google.truth:truth:1.1.3")
     kspAndroidTest("com.google.dagger:hilt-compiler:2.47")
     debugImplementation("androidx.compose.ui:ui-tooling")
+    // Para testing de Compose
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
+
+
 }
