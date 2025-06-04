@@ -45,11 +45,7 @@ class StorageServiceImpl @Inject constructor(
   override val tasks: Flow<List<Task>>
     get() =
       auth.currentUser.flatMapLatest { user ->
-        firestore
-          .collection(TASK_COLLECTION)
-          .whereEqualTo(USER_ID_FIELD, user.id)
-          .orderBy(CREATED_AT_FIELD, Query.Direction.DESCENDING)
-          .dataObjects()
+        firestore.collection(TASK_COLLECTION).whereEqualTo(USER_ID_FIELD, user.id).dataObjects()
       }
 
   override suspend fun getTask(taskId: String): Task? =

@@ -43,7 +43,9 @@ fun TasksScreen(
   openScreen: (String) -> Unit,
   viewModel: TasksViewModel = hiltViewModel()
 ) {
-  val tasks = viewModel.tasks.collectAsStateWithLifecycle(emptyList())
+  val tasks = viewModel
+    .tasks
+    .collectAsStateWithLifecycle(emptyList())
   val options by viewModel.options
 
   TasksScreenContent(
